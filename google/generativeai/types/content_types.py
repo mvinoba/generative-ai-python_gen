@@ -37,7 +37,6 @@ __all__ = [
     "PartDict",
     "PartType",
     "ContentDict",
-    "ToolsType",
 ]
 
 
