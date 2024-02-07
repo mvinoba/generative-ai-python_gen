@@ -237,6 +237,7 @@ def to_easy_safety_dict(settings: SafetySettingOptions, harm_category_set):
 
 def normalize_safety_settings(
     settings: SafetySettingOptions,
+    harm_category_set,
 ) -> List[SafetySettingDict] | None:
     if settings is None:
         return None
