@@ -356,8 +356,6 @@ class ChatSession:
         **kwargs,
     ) -> generation_types.GenerateContentResponse:
         content = content_types.to_content(content)
-        if not content.role:
-            content.role = self._USER_ROLE
         history = self.history[:]
         history.append(content)
 
