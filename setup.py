@@ -27,7 +27,7 @@ description = "Google Generative AI High level API client library and tools."
 
 
 
-version = '1.0.3'
+version = '1.0.4'
 
 dependencies = [
     "google-ai-generativelanguage==0.4.0",
