@@ -183,7 +183,7 @@ def is_content_dict(d):
 # For generate_content, we're not guessing roles for [[parts],[parts],[parts]] yet.
 
 
-def to_content():
+def to_content(content):
     if not content:
         raise ValueError("content must not be empty")
 
