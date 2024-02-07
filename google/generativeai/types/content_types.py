@@ -204,18 +204,18 @@ def strict_to_content():
 
 
 def to_contents(contents):
-    if contents is None:
-        return []
+    #if contents is None:
+    #    return []
 
-    if isinstance(contents, Iterable) and not isinstance(contents, (str, Mapping)):
-        try:
-            # strict_to_content so [[parts], [parts]] doesn't assume roles.
-            contents = [strict_to_content(c) for c in contents]
-            return contents
-        except TypeError:
+    #if isinstance(contents, Iterable) and not isinstance(contents, (str, Mapping)):
+    #    try:
+    #        # strict_to_content so [[parts], [parts]] doesn't assume roles.
+    #        contents = [strict_to_content(c) for c in contents]
+    #        return contents
+    #    except TypeError:
             # If you get a TypeError here it's probably because that was a list
             # of parts, not a list of contents, so fall back to `to_content`.
-            pass
+    #        pass
 
     contents = [to_content(contents)]
     return contents
