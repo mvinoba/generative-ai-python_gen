@@ -235,10 +235,8 @@ def to_contents(contents: ContentsType) -> list[glm.Content]:
     return contents
 
 
-ToolsType = Union[Iterable[glm.Tool], glm.Tool, dict[str, Any], None]
 
-
-def to_tools(tools: ToolsType) -> list[glm.Tool]:
+def to_tools(tools):
     if tools is None:
         return []
     elif isinstance(tools, Mapping):
