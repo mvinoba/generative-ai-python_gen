@@ -216,12 +216,11 @@ class LooseSafetySettingDict(TypedDict):
 
 
 EasySafetySetting = Mapping[HarmCategoryOptions, HarmBlockThresholdOptions]
-EasySafetySettingDict = dict[HarmCategoryOptions, HarmBlockThresholdOptions]
 
 SafetySettingOptions = Union[EasySafetySetting, Iterable[LooseSafetySettingDict], None]
 
 
-def to_easy_safety_dict(settings: SafetySettingOptions, harm_category_set) -> EasySafetySettingDict:
+def to_easy_safety_dict(settings: SafetySettingOptions, harm_category_set):
     if settings is None:
         return {}
     elif isinstance(settings, Mapping):
