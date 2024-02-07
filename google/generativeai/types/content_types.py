@@ -37,7 +37,6 @@ __all__ = [
     "PartDict",
     "PartType",
     "ContentDict",
-    "ContentsType",
     "ToolsType",
 ]
 
@@ -217,7 +216,7 @@ def strict_to_content():
 
 
 
-def to_contents(contents: ContentsType) -> list[glm.Content]:
+def to_contents(contents):
     if contents is None:
         return []
 
