@@ -184,19 +184,7 @@ def is_content_dict(d):
 
 
 def to_content(content):
-    if not content:
-        raise ValueError("content must not be empty")
-
-    if isinstance(content, Mapping):
-        content = _convert_dict(content)
-
-    if isinstance(content, glm.Content):
-        return content
-    elif isinstance(content, Iterable) and not isinstance(content, str):
-        return glm.Content(parts=[to_part(part) for part in content])
-    else:
-        # Maybe this is a Part?
-        return glm.Content(parts=[to_part(content)])
+    return content
 
 
 def strict_to_content():
