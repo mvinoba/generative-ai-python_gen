@@ -46,7 +46,7 @@ request. This takes some manual management but gives you complete control:
 >>> response = model.generate_content(messages) # "Hello, how can I help"
 >>> messages.append(response.candidates[0].content)
 >>> messages.append({'role':'user', 'parts': ['How does quantum physics work?']})
->>> response = model.generate_content(messages) 
+>>> response = model.generate_content(messages)
 
 For a simpler multi-turn interface see `GenerativeModel.start_chat`.
 
@@ -69,7 +69,7 @@ Arguments:
     contents: The contents serving as the model's prompt.
     generation_config: Overrides for the model's generation config.
     safety_settings: Overrides for the model's safety settings.
-    stream: If True, yield response chunks as they are generated. 
+    stream: If True, yield response chunks as they are generated.
     tools: `glm.Tools` more info coming soon.
 """
 
@@ -201,8 +201,9 @@ class GenerativeModel:
         if not contents:
             raise TypeError("contents must not be empty")
 
-        contents = content_types.to_contents(contents)
-
+        #contents = content_types.to_contents(contents)
+        print(contents)
+        #ontents = contents[1]
         generation_config = generation_types.to_generation_config_dict(generation_config)
         merged_gc = self._generation_config.copy()
         merged_gc.update(generation_config)
@@ -355,10 +356,10 @@ class ChatSession:
         stream: bool = False,
         **kwargs,
     ) -> generation_types.GenerateContentResponse:
-        content = content_types.to_content(content)
-        history = self.history[:]
-        history.append(content)
-
+        #content = content_types.to_content(content)
+        #history = self.history[:]
+        #history.append(content)
+        history=content
         generation_config = generation_types.to_generation_config_dict(generation_config)
         if generation_config.get("candidate_count", 1) > 1:
             raise ValueError("Can't chat with `candidate_count > 1`")
@@ -480,7 +481,8 @@ class ChatSession:
 
         sent = self._last_sent
         received = self._last_received.candidates[0].content
-        
+        if not received.role:
+            received.role = self._MODEL_ROLE
         self._history.extend([sent, received])
 
         self._last_sent = None
