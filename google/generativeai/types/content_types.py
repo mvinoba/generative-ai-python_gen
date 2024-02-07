@@ -37,8 +37,6 @@ __all__ = [
     "PartDict",
     "PartType",
     "ContentDict",
-    "ContentType",
-    "StrictContentType",
     "ContentsType",
     "ToolsType",
 ]
@@ -183,13 +181,11 @@ def is_content_dict(d):
 
 # When you need a message accept a `Content` object or dict, a list of parts,
 # or a single part
-ContentType = Union[glm.Content, ContentDict, Iterable[PartType], PartType]
 
 # For generate_content, we're not guessing roles for [[parts],[parts],[parts]] yet.
-StrictContentType = Union[glm.Content, ContentDict]
 
 
-def to_content(content: ContentType):
+def to_content():
     if not content:
         raise ValueError("content must not be empty")
 
@@ -205,7 +201,7 @@ def to_content(content: ContentType):
         return glm.Content(parts=[to_part(content)])
 
 
-def strict_to_content(content: StrictContentType):
+def strict_to_content():
     if isinstance(content, Mapping):
         content = _convert_dict(content)
 
@@ -219,7 +215,6 @@ def strict_to_content(content: StrictContentType):
         )
 
 
-ContentsType = Union[ContentType, Iterable[StrictContentType], None]
 
 
 def to_contents(contents: ContentsType) -> list[glm.Content]:
