@@ -202,7 +202,7 @@ class GenerativeModel:
             raise TypeError("contents must not be empty")
 
         #contents = content_types.to_contents(contents)
-        print(contents)
+        #print(contents)
         #ontents = contents[1]
         generation_config = generation_types.to_generation_config_dict(generation_config)
         merged_gc = self._generation_config.copy()
