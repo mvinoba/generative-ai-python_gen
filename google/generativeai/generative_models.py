@@ -482,8 +482,7 @@ class ChatSession:
 
         sent = self._last_sent
         received = self._last_received.candidates[0].content
-        if not received.role:
-            received.role = self._MODEL_ROLE
+        
         self._history.extend([sent, received])
 
         self._last_sent = None
