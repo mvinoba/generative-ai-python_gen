@@ -21,9 +21,9 @@ import setuptools  # type: ignore
 
 package_root = pathlib.Path(__file__).parent.resolve()
 
-name = "google-generativeai_gen"
+name = "generativeai_gen"
 
-description = "Google Generative AI High level API client library and tools."
+description = "Custom purpose forked repo - no affilition with Google."
 
 
 
@@ -42,7 +42,7 @@ extras_require = {
     "dev": ["absl-py", "black", "nose2", "pandas", "pytype", "pyyaml", "Pillow", "ipython"],
 }
 
-url = "https://github.com/google/generative-ai-python"
+url = "https://github.com/mvinoba/generative-ai-python_gen"
 
 readme = (package_root / "README.md").read_text()
 
